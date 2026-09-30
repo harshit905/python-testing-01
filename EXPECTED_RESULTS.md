@@ -7,7 +7,7 @@ transitives.
 
 | bucket | packages |
 |--------|----------|
-| Vulnerable | `PyYAML@5.1`, `Jinja2@2.10`, `urllib3@1.24.3` (range resolved), `requests@2.20.0`, `idna@2.7` (transitive), `Werkzeug@0.15.3` (via `-r`) |
+| Vulnerable | `PyYAML@5.1`, `Jinja2@2.11.2`, `urllib3@1.24.3` (range resolved), `requests@2.20.0`, `idna@2.7` (transitive), `Werkzeug@0.15.3` (via `-r`) |
 | Healthy | `six@1.17.x` (latest), `MarkupSafe@…` (transitive of Jinja2), `python-dateutil@2.8.x`, `PySocks@1.7.1`, `chardet@3.0.4`, `certifi@…`, `typing-extensions@4.4.0` |
 | Unresolved | none |
 
@@ -17,7 +17,7 @@ transitives.
 ## Vulnerabilities
 - **`PyYAML@5.1`** — arbitrary code execution via `full_load`, `CVE-2020-1747`
   (and `CVE-2020-14343`), fixed in 5.4. Zero deps.
-- **`Jinja2@2.10`** — sandbox escape `CVE-2019-10906` and ReDoS `CVE-2020-28493`.
+- **`Jinja2@2.11.2`** — sandbox escape `CVE-2019-10906` and ReDoS `CVE-2020-28493`.
   Pulls `MarkupSafe` (healthy transitive).
 - **`urllib3`** — the range `>=1.24,<1.25` resolves to `1.24.3`, which is still
   vulnerable (`CVE-2020-26137` CRLF, `CVE-2021-33503` ReDoS; both fixed later).

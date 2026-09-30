@@ -4,9 +4,10 @@
 # Exact pin to a KNOWN-VULNERABLE version (arbitrary code execution). Zero deps.
 PyYAML==5.1
 
-# Exact pin to a KNOWN-VULNERABLE version (sandbox escape + ReDoS). Pulls
-# MarkupSafe as a transitive.
-Jinja2==2.10
+# Exact pin to a KNOWN-VULNERABLE version (ReDoS CVE-2020-28493, plus the 2024
+# sandbox fixes). The last 2.x that imports on Python 3.10+, so the upgrade-impact
+# tests can run it. Pulls MarkupSafe as a transitive.
+Jinja2==2.11.2
 
 # A RANGE that must resolve to a still-VULNERABLE version (1.24.x). Tests that
 # generation resolves a range and does not stop at "range = unknown". Zero deps.
