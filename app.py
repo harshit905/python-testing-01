@@ -1,12 +1,11 @@
-import yaml
-import jinja2
-import urllib3
+"""Entry point: imports every module so reachability sees the packages in use."""
 import six
-import requests
+
+from app import cache, client, config, decoy, http, templates
 
 
 def main():
-    _ = (yaml, jinja2, urllib3, six, requests)
+    _ = (six, cache, client, config, decoy, http, templates)
     print("sca test app")
 
 
