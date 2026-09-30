@@ -17,7 +17,9 @@ transitives.
 ## Vulnerabilities
 - **`PyYAML@5.1`** — arbitrary code execution via `full_load`, `CVE-2020-1747`
   (and `CVE-2020-14343`), fixed in 5.4. Zero deps.
-- **`Jinja2@2.11.2`** — sandbox escape `CVE-2019-10906` and ReDoS `CVE-2020-28493`.
+- **`Jinja2@2.11.2`** — ReDoS `CVE-2020-28493` (fixed 2.11.3) plus the 2024 sandbox
+  advisories (fixed 3.1.3 / 3.1.5). Was 2.10 until Oct 2026; bumped because 2.10 cannot
+  import on Python 3.10+.
   Pulls `MarkupSafe` (healthy transitive).
 - **`urllib3`** — the range `>=1.24,<1.25` resolves to `1.24.3`, which is still
   vulnerable (`CVE-2020-26137` CRLF, `CVE-2021-33503` ReDoS; both fixed later).
