@@ -1,0 +1,10 @@
+[project]
+name = "pep621-sample"
+version = "0.1.0"
+requires-python = ">=3.9"
+# PEP 621 manifest in a subfolder: the same Jinja2 as requirements.txt (separate finding per manifest),
+# plus a package that only this manifest declares.
+dependencies = [
+    "Jinja2==2.11.2",
+    "idna==2.7",
+]
