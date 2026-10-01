@@ -12,6 +12,9 @@ version across the package's advisories, as the scanner computes them (Oct 2026)
 | Werkzeug | 0.15.3 (via `-r requirements-dev.txt`) | 3.1.6 (major) | **NEEDS CHANGES**, HIGH | `app/cache.py` imports `werkzeug.contrib.cache.SimpleCache`; `werkzeug.contrib` was removed in 1.0 (griffe: object removed); `tests/test_cache.py` fails with `ModuleNotFoundError` |
 | idna | 2.7 (transitive of requests) | 3.15 | **NEEDS CHANGES**, HIGH | transitive: no usage to map; resolver **fails** because `requests==2.20.0` pins `idna<2.8`; PARENT UPGRADE should say requests -> 2.34.x brings idna 3.x; the step is "bump requests" |
 
+| Jinja2 (pep621/pyproject.toml) | 2.11.2 | 3.1.6 | **NEEDS CHANGES**, HIGH | separate finding for the PEP 621 manifest; `pep621/render.py` imports `Markup`; the resolver runs `uv pip compile pyproject.toml` with the bumped requirement string |
+| idna (pep621/pyproject.toml) | 2.7 (direct here) | 3.15 | **SAFE**, MEDIUM | direct in this manifest, nothing imports it; resolver passes (no requests pin in this manifest) |
+
 ## Traps built in
 - `app/decoy.py` defines a local `class Retry`, a local `method_whitelist()` function and a comment mentioning `jinja2.Markup`. A grep for the changed symbols hits all three; none is a real call site. Only `app/http.py` and `app/templates.py` are.
 - `from urllib3.util.retry import Retry as _Retry`: the alias must still be recognised as urllib3's `Retry`.
